@@ -18,3 +18,8 @@ a {
   box-sizing: border-box;
 }
 
+/* table, td, th {
+  border: 1px solid;
+  width: 90%;
+} */
+
