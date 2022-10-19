@@ -18,3 +18,77 @@ a {
   box-sizing: border-box;
 }
 
+.main {
+  display: flex;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 16px;
+  margin-right: 16px;
+}
+
+.song-item {
+  border: 1px solid #ccc;
+  /* box-shadow: 0 0 4px 8px rgba(0, 0, 0, 0.2); */
+  margin-bottom: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.song-item.selected {
+  background-color: aquamarine;
+}
+
+.song-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-title {
+  font-weight: 700;
+}
+
+.song-duration {
+  font-size: 0.8;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-main {
+  border: 1px solid #000;
+  width: 100%;
+  height: 50px;
+}
+
+.player-inner {
+  height: 100%;
+  background-color: blue;
+}
+
+.player-action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.player-action:last-child {
+  margin-right: 0;
+}
+
+.player-action.selected {
+  background: gray;
+}
