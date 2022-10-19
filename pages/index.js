@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 const songs = require("./songlist.json");
 
 // songs contains an array of objects, each with a title, artist, duration in seconds. Refer to README for more details.
@@ -27,15 +27,11 @@ const convertDuration = (time) => {
 };
 
 export default function Home() {
-  const [songIndex, setSongIndex] = useState();
-  const [played, setPlayed] = useState();
+  const [songIndex, setSongIndex] = useState(0);
+  const [played, setPlayed] = useState(false);
   const [playing, setPlaying] = useState(0);
   const [repeated, setRepeated] = useState(false);
-  const [timePointer, setTimePointer] = useState();
-
-  const handlePlaying = () => {
-    setPlaying(playing + 1);
-  };
+  const timePointer = useRef();
 
   const handleClickPlayPause = () => {
     if (songIndex === undefined) {
@@ -45,10 +41,15 @@ export default function Home() {
 
     setPlayed((oldPlayed) => {
       if (!oldPlayed) {
+        if (timePointer.current) {
+          clearInterval(timePointer.current);
+          handleStartSong();
+        } else {
+          handleStartSong();
+        }
       } else {
-        if (timePointer) {
-          clearInterval(timePointer);
-          setTimePointer(null);
+        if (timePointer.current) {
+          clearInterval(timePointer.current);
         }
       }
       return !oldPlayed;
@@ -60,7 +61,6 @@ export default function Home() {
       return;
     }
     setSongIndex(songIndex + 1);
-    // reset play
   };
 
   const handleClickPrev = () => {
@@ -68,7 +68,6 @@ export default function Home() {
       return;
     }
     setSongIndex(songIndex - 1);
-    // reset play
   };
 
   const handleClickRepeat = () => {
@@ -79,29 +78,33 @@ export default function Home() {
 
   const handleClickSong = (index) => {
     setSongIndex(index);
-    // reset play if songIndex !== index
   };
 
   const handleStartSong = () => {
-    const timeInterval = setInterval(() => {
-      setPlaying(playing + 1);
+    timePointer.current = setInterval(() => {
+      setPlaying((prevPlaying) => prevPlaying + 1);
     }, 1000);
-    setTimePointer(timeInterval);
+    setPlayed(true);
   };
 
   useEffect(() => {
     setPlayed(false);
     setPlaying(0);
 
-    if (timePointer) {
-      clearInterval(timePointer);
-      setTimePointer(null);
+    if (timePointer.current) {
+      clearInterval(timePointer.current);
+      handleStartSong();
+    } else {
       handleStartSong();
     }
   }, [songIndex]);
 
   useEffect(() => {
-    if (selectedSong && playing >= selectedSong.duration && timePointer) {
+    if (
+      selectedSong &&
+      playing >= selectedSong.duration &&
+      timePointer.current
+    ) {
       if (repeated) {
         setPlaying(0);
       } else {
@@ -111,7 +114,7 @@ export default function Home() {
   }, [playing, repeated, songIndex, timePointer]);
 
   const selectedSong = useMemo(() => {
-    if (!songIndex) {
+    if (songIndex === null) {
       return;
     }
     return songs.songs[songIndex];
@@ -141,7 +144,9 @@ export default function Home() {
           <div
             className="player-inner"
             style={{
-              width: `${selectedSong ? playing / selectedSong.duration : 0}%`,
+              width: `${
+                selectedSong ? (playing / selectedSong.duration) * 100 : 0
+              }%`,
             }}
           ></div>
         </div>
