@@ -12,6 +12,7 @@ export const TrackDetails = styled.div`
 
   @media (min-width: 580px) {
     border-right: 1px solid white;
+    min-height: 66px;
   }
 
   p {

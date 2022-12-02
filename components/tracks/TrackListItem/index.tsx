@@ -42,7 +42,7 @@ export const TrackListItem = ({ trackNumber, track }: TrackListItemProps) => {
       <td>
         {showPlayIcon ? (
           <PlayPauseButton
-            isPlaying={currentTrack?.title === title}
+            isPlaying={currentTrack?.title === title && isPlaying}
             onClick={handlePlayPause}
           />
         ) : (
