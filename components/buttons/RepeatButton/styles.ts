@@ -31,7 +31,7 @@ export const RepeatButton = styled(IconButton)<{ repeat: RepeatStateType }>`
 
   &&& svg {
     color: ${({ repeat, theme }) =>
-      ["all", "single"].includes(repeat)
+      [RepeatStateType.ALL, RepeatStateType.SINGLE].includes(repeat)
         ? theme.colors.fonts.green
         : theme.colors.fonts.white};
   }

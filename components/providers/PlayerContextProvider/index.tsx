@@ -4,7 +4,11 @@ import { TrackDetailsType } from "../../player/common/types.common"
 import songs from "../../../static/songlist.json"
 import { shuffleArray } from "../../../helpers/shuffle-array"
 
-export type RepeatStateType = "disabled" | "all" | "single"
+export enum RepeatStateType {
+  DISABLED = "disabled",
+  ALL = "all",
+  SINGLE = "single",
+}
 
 interface AppContextInterface {
   trackList: TrackDetailsType[]
@@ -38,7 +42,9 @@ export const PlayerContextProvider = ({
   const [isShuffled, setIsShuffled] = useState<boolean>(false)
   const [trackHistory, setTrackHistory] = useState<TrackDetailsType[]>([])
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
-  const [repeat, setRepeat] = useState<RepeatStateType>("disabled")
+  const [repeat, setRepeat] = useState<RepeatStateType>(
+    RepeatStateType.DISABLED
+  )
   const [currentTrack, setCurrentTrack] = useState<
     undefined | TrackDetailsType
   >()
@@ -69,7 +75,7 @@ export const PlayerContextProvider = ({
         })
       } else if (index >= 0 && index < data.length - 1) {
         setCurrentTrack({ ...data[index + 1] })
-      } else if (repeat === "all") {
+      } else if (repeat === RepeatStateType.ALL) {
         setCurrentTrack({ ...data[0] })
       } else {
         setIsPlaying(false)
@@ -90,17 +96,17 @@ export const PlayerContextProvider = ({
   }
 
   const handleSetRepeat = () => {
-    let repeatUpdate: RepeatStateType = "disabled"
+    let repeatUpdate: RepeatStateType = RepeatStateType.DISABLED
 
     switch (repeat) {
-      case "disabled":
-        repeatUpdate = "all"
+      case RepeatStateType.DISABLED:
+        repeatUpdate = RepeatStateType.ALL
         break
-      case "all":
-        repeatUpdate = "single"
+      case RepeatStateType.ALL:
+        repeatUpdate = RepeatStateType.SINGLE
         break
       default:
-        repeatUpdate = "disabled"
+        repeatUpdate = RepeatStateType.DISABLED
     }
 
     setRepeat(repeatUpdate)
