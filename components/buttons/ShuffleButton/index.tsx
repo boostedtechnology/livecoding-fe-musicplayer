@@ -1,7 +1,6 @@
 import { faShuffle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { IconButton } from "../IconButton"
 import { usePlayerContext } from "../../providers/PlayerContextProvider"
 
 import * as S from "./styles"

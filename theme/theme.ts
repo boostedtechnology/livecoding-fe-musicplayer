@@ -7,6 +7,7 @@ export const theme = {
     },
     background: {
       default: "#191414",
+      contrast: "#1c1717",
     },
   },
 }

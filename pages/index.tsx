@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 import { Layout, PlayerLayout, TrackList, TrackListItem } from "../components"
 import { usePlayerContext } from "../components/providers/PlayerContextProvider"
 

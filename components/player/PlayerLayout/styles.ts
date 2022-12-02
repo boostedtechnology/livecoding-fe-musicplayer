@@ -5,6 +5,7 @@ export const PlayerLayout = styled.div`
   background-color: #191414;
   border-top: 1px solid white;
   padding: 24px;
+  background-color: ${({ theme }) => theme.colors.background.contrast};
 
   @media (max-width: 579px) {
     grid-template-rows: auto 120px;

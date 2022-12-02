@@ -13,6 +13,11 @@ export const TrackDetails = styled.div`
   }
 
   p {
+    &:first-of-type {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
     color: ${({ theme }) => theme.colors.fonts.white};
   }
 `

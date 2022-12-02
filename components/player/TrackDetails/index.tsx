@@ -1,4 +1,5 @@
 import { TrackDetailsType } from "../common/types.common"
+
 import * as S from "./styles"
 
 interface TrackDetailsProps extends Omit<TrackDetailsType, "duration"> {

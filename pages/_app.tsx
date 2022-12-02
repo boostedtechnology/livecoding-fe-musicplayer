@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components"
 
-import { theme } from "../theme/theme"
 import "../styles/globals.css"
+import { theme } from "../theme/theme"
 import { PlayerContextProvider } from "../components/providers"
 
 const MyApp = ({ Component, pageProps }) => {

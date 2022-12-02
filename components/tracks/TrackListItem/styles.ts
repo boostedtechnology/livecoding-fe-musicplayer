@@ -6,7 +6,7 @@ export const TrackListItem = styled.tr<{ isActive: boolean }>`
   gap: 32px;
 
   &:hover {
-    background-color: #262626;
+    background-color: ${({ theme }) => theme.colors.background.contrast};
   }
 
   td {

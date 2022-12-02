@@ -4,6 +4,7 @@ declare module "styled-components" {
     colors: {
       background: {
         default: string
+        contrast: string
       }
       fonts: {
         white: string

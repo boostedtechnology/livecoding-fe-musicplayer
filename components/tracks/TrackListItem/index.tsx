@@ -3,9 +3,9 @@ import { useState } from "react"
 import { formatDate } from "../../../helpers/format-date"
 import { TrackDetailsType } from "../../player/common/types.common"
 import { PlayPauseButton } from "../../buttons"
+import { usePlayerContext } from "../../providers/PlayerContextProvider"
 
 import * as S from "./styles"
-import { usePlayerContext } from "../../providers/PlayerContextProvider"
 
 interface TrackListItemProps {
   trackNumber: number

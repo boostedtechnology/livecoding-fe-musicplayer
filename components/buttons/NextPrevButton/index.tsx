@@ -3,8 +3,8 @@ import {
   faBackwardStep,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { usePlayerContext } from "../../providers/PlayerContextProvider"
 
+import { usePlayerContext } from "../../providers/PlayerContextProvider"
 import { IconButton } from "../IconButton"
 
 type PlayPauseButtonProps = {
