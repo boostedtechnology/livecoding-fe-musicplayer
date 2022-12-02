@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { formatDate } from "../../../helpers/format-date"
+import { formatTime } from "../../../helpers/format-time"
 import { TrackDetailsType } from "../../player/common/types.common"
 import { PlayPauseButton } from "../../buttons"
 import { usePlayerContext } from "../../providers/PlayerContextProvider"
@@ -56,7 +56,7 @@ export const TrackListItem = ({ trackNumber, track }: TrackListItemProps) => {
         <p>{artist}</p>
       </td>
       <td>
-        <p>{formatDate(duration)}</p>
+        <p>{formatTime(duration)}</p>
       </td>
     </S.TrackListItem>
   )

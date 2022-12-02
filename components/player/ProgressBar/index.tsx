@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { formatTime } from "../../../helpers/format-time"
 
 import { usePlayerContext } from "../../providers/PlayerContextProvider"
 import { TrackDetailsType } from "../common/types.common"
@@ -37,11 +38,11 @@ export const ProgressBar = ({ duration }: ProgressBarProps) => {
       percentElapsed={(secondsElapsed / duration) * 100}
     >
       <div className="progress-bar__inner">
-        <p className="progress-bar__number">{secondsElapsed}</p>
+        <p className="progress-bar__number">{formatTime(secondsElapsed)}</p>
         <div className="progress-bar__track">
           <div className="progress-bar__elapsed"></div>
         </div>
-        <p className="progress-bar__number">{duration}</p>
+        <p className="progress-bar__number">{formatTime(duration)}</p>
       </div>
     </S.ProgressBar>
   )
