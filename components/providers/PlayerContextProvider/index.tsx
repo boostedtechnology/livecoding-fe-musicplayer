@@ -69,7 +69,7 @@ export const PlayerContextProvider = ({
 
       let index = data.map(({ title }) => title).indexOf(currentTrack.title)
 
-      if (repeat === "single") {
+      if (repeat === RepeatStateType.SINGLE) {
         setCurrentTrack({
           ...data.find(({ title }) => title === currentTrack?.title),
         })

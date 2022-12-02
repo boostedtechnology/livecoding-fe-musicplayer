@@ -8,7 +8,7 @@ export const RepeatButton = styled(IconButton)<{ repeat: RepeatStateType }>`
 
   &:after {
     ${({ repeat, theme }) =>
-      repeat === "single" &&
+      repeat === RepeatStateType.SINGLE &&
       `
         position: absolute;
         content: "1";
