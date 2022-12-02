@@ -4,6 +4,7 @@ import {
   RepeatButton,
   ShuffleButton,
 } from "../../buttons"
+import { NextPrevValues } from "../../buttons/NextPrevButton"
 import { usePlayerContext } from "../../providers/PlayerContextProvider"
 
 import * as S from "./styles"
@@ -28,9 +29,9 @@ export const Controls = () => {
   return (
     <S.Controls>
       <ShuffleButton />
-      <NextPrevButton type="prev" />
+      <NextPrevButton type={NextPrevValues.PREV} />
       <PlayPauseButton isPlaying={isPlaying} onClick={handleTogglePlayPause} />
-      <NextPrevButton type="next" />
+      <NextPrevButton type={NextPrevValues.NEXT} />
       <RepeatButton />
     </S.Controls>
   )

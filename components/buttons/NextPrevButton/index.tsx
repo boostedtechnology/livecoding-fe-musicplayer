@@ -7,11 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { usePlayerContext } from "../../providers/PlayerContextProvider"
 import { IconButton } from "../IconButton"
 
-type PlayPauseButtonProps = {
-  type: "next" | "prev"
+export enum NextPrevValues {
+  NEXT = "next",
+  PREV = "prev",
 }
 
-export const NextPrevButton = ({ type }: PlayPauseButtonProps) => {
+type NextPrevButtonType = {
+  type: NextPrevValues
+}
+
+export const NextPrevButton = ({ type }: NextPrevButtonType) => {
   const { nextTrack, prevTrack } = usePlayerContext()
 
   const handleClick = () => {
@@ -30,7 +35,7 @@ export const NextPrevButton = ({ type }: PlayPauseButtonProps) => {
   return (
     <IconButton onClick={handleClick}>
       <FontAwesomeIcon
-        icon={type === "next" ? faForwardStep : faBackwardStep}
+        icon={type === NextPrevValues.NEXT ? faForwardStep : faBackwardStep}
       />
     </IconButton>
   )
