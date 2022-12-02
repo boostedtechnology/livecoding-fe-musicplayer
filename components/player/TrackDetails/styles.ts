@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
 export const TrackDetails = styled.div`
+  padding: 0 24px 0 0;
+
   @media (max-width: 579px) {
     display: flex;
     flex-flow: row wrap;
     gap: 12px 32px;
-    padding-bottom: 24px;
+    padding: 0 0 24px 0;
   }
 
   @media (min-width: 580px) {
