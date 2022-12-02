@@ -12,7 +12,7 @@ export const Layout = styled.div`
     width: 100%;
 
     @media (min-width: 580px) {
-      grid-template-rows: minmax(400px, max-content) 120px;
+      grid-template-rows: minmax(400px, max-content) auto;
     }
 
     @media (max-width: 579px) {

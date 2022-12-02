@@ -20,6 +20,18 @@ export const PlayerLayout = styled.div`
     display: flex;
     flex-flow: column nowrap;
     gap: 12px;
+    align-content: center;
+    height: 100%;
+
+    & > div {
+      &:first-of-type {
+        margin-top: auto;
+      }
+
+      &:last-of-type {
+        margin-bottom: auto;
+      }
+    }
 
     @media (min-width: 580px) {
       padding: 0 24px;
