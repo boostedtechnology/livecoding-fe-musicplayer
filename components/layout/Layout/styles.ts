@@ -16,7 +16,7 @@ export const Layout = styled.div`
     }
 
     @media (max-width: 579px) {
-      grid-template-rows: minmax(400px, max-content) 200px;
+      grid-template-rows: minmax(400px, max-content) auto;
     }
   }
 `

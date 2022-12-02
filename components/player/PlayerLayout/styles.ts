@@ -8,7 +8,7 @@ export const PlayerLayout = styled.div`
   background-color: ${({ theme }) => theme.colors.background.contrast};
 
   @media (max-width: 579px) {
-    grid-template-rows: auto 120px;
+    grid-template-rows: auto auto;
     gap: 12px;
   }
 
