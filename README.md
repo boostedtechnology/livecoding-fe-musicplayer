@@ -41,21 +41,12 @@ iv) Song list that displays the songs. This should be clickable and allow users 
 Use any library of your choice, or pure CSS when it comes to styling. The components should be arranged an in a logical way, and have some consistent style. 
 
 
-## Question 2: Music Play Emulation
+## Question 2: Backend
 
-i) playing music:
+Create a simple backend using an technology that you prefer.
+The backend should simply have 
+- json file `users.json` with a list of email/password users
+- a `/signin` endpoint that accepts username/password. If valid it generates a JWT token
 
-This should enable a user to "play" music. Since there is no audio, this should change the scrollbar/scrubber and cursor. The time info from part 1 should increase every second. The cursor should move proportional along the scrollbar as the song advances. 
-
-ii) navigation:
-
-When the next button is pressed, the player should advance to the next song. When the previous button is pressed, the player should return to the start of the current song. If the previous button is pressed twice, then the previous song in the list should be played, if it exists. 
-
-iii) repeat:
-
-if the repeat function is activated, the song should return to the beginning and not continue to the next song.
-
-
-## Question 3: Song list shuffle
-Extend the songlist to allow for shuffling music. When the shuffle button is activated, the list of songs should return a randomized order. When the button is deactivated, the songlist should return to the original order.
-
+### Bonus Question (if time is available)
+- After logging in, streamthe audio back to the frontend & consume it on the interface built in Question 1
