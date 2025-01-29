@@ -40,4 +40,4 @@ Complete the shuffle function to randomize the song list
 Full integrate the functionality of "Previous Song", "Next Song", "Previous Page", "Next Page" together, to make sure the correct current song, current page being displayed on different use cases.
 
 ## Task 6: Make music name editable
-Change music names to text input which allows user to update music names
+Add an edit button next to each music name. After click the "edit" button, user should be able to edit music name, and be able to cancel or save their changes.
