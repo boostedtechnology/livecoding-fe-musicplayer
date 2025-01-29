@@ -18,8 +18,7 @@ export const MusicProvider = ({ children }) => {
   };
 
   const shuffleSongs = () => {
-    const shuffledList = [...musicList].sort(() => Math.random() - 0.5);
-    setMusicList(shuffledList);
+
   };
 
   return (
