@@ -13,6 +13,14 @@ export default function Home() {
 
   const displayedSongs = musicList
 
+  const handleClickPrevious = () => {
+    setCurrentPage(currentPage - 1)
+  }
+
+  const handleClickNext = () => {
+    setCurrentPage(currentPage + 1)
+  }
+
   return (
     <section className='flex'>
       <section>
@@ -38,11 +46,11 @@ export default function Home() {
               </option>
             ))}
           </select>
-          <button>
+          <button onClick={handleClickPrevious} style={{ backgroundColor: 'green', color: 'white' }}>
             Previous
           </button>
           <span> Page {currentPage} of {totalPages} </span>
-          <button style={{ backgroundColor: 'green', color: 'white' }}>
+          <button onClick={handleClickNext} style={{ backgroundColor: 'green', color: 'white' }}>
             Next
           </button>
         </div>
